@@ -1,38 +1,293 @@
-.App {
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+.app {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+h1 {
   text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dashboard {
+  background-color: #6f42c1; /* Change to a purple color */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.stats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+}
+
+.stat {
+  text-align: center;
+  transition: transform 0.2s;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1); /* Light overlay */
+}
+
+.stat:hover {
+  transform: scale(1.05);
+}
+
+.stat h3 {
+  margin: 0;
+}
+
+.stat p {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.task-input {
+  margin-bottom: 20px;
+  background-color: #e9ecef; /* Light grey background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.task-input input,
+.task-input textarea,
+.task-input select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.task-input input:focus,
+.task-input textarea:focus,
+.task-input select:focus {
+  border-color: #6f42c1; /* Purple border on focus */
+  outline: none;
+  box-shadow: 0 0 5px rgba(111, 66, 193, 0.5);
+}
+
+button {
+  background-color: #6f42c1; /* Change button color to purple */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #563d7a; /* Darker purple on hover */
+  transform: translateY(-2px);
+}
+
+.task-list {
+  margin-top: 20px;
+}
+
+.task {
+  background-color: #f8f9fa;
+  border: 1px solid #e2e3e5;
+  border-radius: 4px;
+  padding: 15px;
+  margin-bottom: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative; /* Allows absolute positioning for priority tag */
+}
+
+.task:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task h3 {
+  margin: 0;
+  color: #333;
+}
+
+.task p {
+  color: #666;
+}
+
+.task button {
+  background-color: #dc3545;
+  margin-right: 10px;
+}
+
+.task button:hover {
+  background-color: #c82333;
+}
+
+.task button:last-child {
+  margin-right: 0;
+}
+
+/* Priority Tag Styles */
+.priority-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.priority-tag.low {
+  background-color: #28a745; /* Green for low priority */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.priority-tag.medium {
+  background-color: #ffc107; /* Yellow for medium priority */
+}
+
+.priority-tag.high {
+  background-color: #dc3545; /* Red for high priority */
+}
+.task h3 {
+  margin: 0;
+  color: #343a40; /* Darker color for better contrast */
+  font-size: 1.5em; /* Larger font size for the title */
+  font-weight: 600; /* Semi-bold weight */
+  margin-bottom: 5px; /* Space between title and description */
+  text-transform: capitalize; /* Capitalize first letter of each word */
+}
+
+.task p {
+  color: #495057; /* Softer gray for description */
+  font-size: 1em; /* Regular font size */
+  line-height: 1.5; /* Increased line height for readability */
+  margin: 5px 0; /* Vertical spacing for paragraphs */
+  border-left: 3px solid #6f42c1; /* Left border for description */
+  padding-left: 10px; /* Padding for the left border */
+}
+
+.task p strong {
+  color: #007bff; /* Blue color for strong text */
+}
+.dashboard {
+  background-color: #6f42c1; /* Purple background */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-columns {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows columns to stack on smaller screens */
+}
+
+.column {
+  flex: 1; /* Each column takes equal space */
+  margin: 10px; /* Space between columns */
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.1); /* Light overlay */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s; /* Animation for hover */
+}
+
+.column:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.column h3 {
+  margin: 0;
+  font-size: 1.2em; /* Increase heading size */
+}
+
+.column p {
+  font-size: 2em; /* Larger font for counts */
+  font-weight: bold; /* Bold for emphasis */
+}
+.dashboard h2 {
+  font-size: 2em; /* Increase the size of the main heading */
+  text-align: center; /* Center align the heading */
+  color: #ffffff; /* White color for better contrast */
+  margin-bottom: 20px; /* Space below the heading */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  letter-spacing: 1px; /* Space between letters for readability */
+  font-weight: bold; /* Make the font bold */
+  text-transform: uppercase; /* Uppercase letters for emphasis */
+}
+
+.column h3 {
+  margin: 0;
+  font-size: 1.5em; /* Increase heading size */
+  display: flex; /* Flexbox to align items */
+  align-items: center; /* Center items vertically */
+  color: #ffffff; /* White color for contrast */
+  background-color: rgba(0, 0, 0, 0.2); /* Slightly darker background */
+  padding: 10px; /* Padding for better spacing */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+.task {
+  background-color: #ffffff; /* White background for tasks */
+  border: 1px solid #dee2e6; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 15px; /* Inner spacing */
+  margin-bottom: 15px; /* Space between tasks */
+  transition: transform 0.3s, box-shadow 0.3s; /* Animation for hover effects */
+  position: relative; /* Allows for absolute positioning of elements inside */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.task:hover {
+  transform: scale(1.02); /* Slight scale effect on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.task h3 {
+  margin: 0;
+  color: #343a40; /* Darker color for better contrast */
+  font-size: 1.5em; /* Larger font size for the title */
+  font-weight: 600; /* Semi-bold weight */
+}
+
+.task p {
+  color: #495057; /* Softer gray for description */
+  font-size: 1em; /* Regular font size */
+  line-height: 1.5; /* Increased line height for readability */
+  margin: 5px 0; /* Vertical spacing for paragraphs */
+  border-left: 3px solid #6f42c1; /* Left border for description */
+  padding-left: 10px; /* Padding for the left border */
+}
+
+.task button {
+  background-color: #28a745; /* Green color for the complete button */
+  margin-right: 10px; /* Space between buttons */
+  padding: 8px 12px; /* Padding for buttons */
+  border-radius: 4px; /* Rounded corners */
+  border: none; /* No border */
+  color: white; /* Text color */
+  font-size: 0.9em; /* Smaller font size for buttons */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.task button:hover {
+  background-color: #218838; /* Darker green on hover */
 }
